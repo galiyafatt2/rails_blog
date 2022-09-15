@@ -1,19 +1,12 @@
-<h1>Listing all articles</h1>
+<h1 align="center">Listing all articles</h1>
 <p>
+
   <%= link_to "Create new article", new_article_path %>
+  <%= link_to "PDF", articles_path(format: :pdf) %>
+  <%= link_to "JSON", articles_path(format: :json) %>
+  <%= link_to "XML", articles_path(format: :xml) %>
 </p>
 <table>
-  <tr>
-    <th>Title</th>
-    <th>Description</th>
-  </tr>
-  <% @articles.each do |article| %>
-    <tr>
-      <td><%= article.title %></td>
-      <td><%= article.description %></td>
-      <td><%= link_to 'Edit', edit_article_path(article) %></td>
-      <td><%= link_to 'Show', article_path(article) %></td>
-      <td><%= link_to 'Delete', article_path(article), method: :delete, data: {confirm: "Are you sure?"} %></td>
-    </tr>
-  <% end %>
+  <%= render 'shared/article', obj: @articles %>
 </table>
+
