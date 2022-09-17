@@ -24,6 +24,16 @@ ActiveRecord::Schema[7.0].define(version: 20_220_911_124_337) do
     t.datetime 'updated_at', null: false
   end
 
+  create_table "responses", force: :cascade do |t|
+    t.string "remote_ip", null: false
+    t.string "request_method", null: false
+    t.string "request_url", null: false
+    t.integer "response_status", null: false
+    t.text "response_content_type", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table 'users', force: :cascade do |t|
     t.string 'username'
     t.string 'email'
