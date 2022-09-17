@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   def new
     @user = User.new
@@ -20,7 +22,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      flash[:success] = "Your account was updated successfully"
+      flash[:success] = 'Your account was updated successfully'
       redirect_to articles_path
     else
       render 'edit'
@@ -38,7 +40,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-  params.require(:user).permit(:username, :email, :password)
+    params.require(:user).permit(:username, :email, :password)
+  end
 end
-end
-
