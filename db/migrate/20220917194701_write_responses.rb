@@ -1,6 +1,6 @@
 class WriteResponses < ActiveRecord::Migration[7.0]
   def change
-    create_table :responses do |t|
+    create_table :response_logs do |t|
       t.string :remote_ip, null: false
       t.string :request_method, null: false
       t.string :request_url, null: false

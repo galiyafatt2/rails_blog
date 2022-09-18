@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
 
   private
   def request_response
-    Response.create(
+    ResponseLog.create(
       remote_ip: request.remote_ip,
       request_method: request.method,
       request_url: request.url,
