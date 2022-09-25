@@ -30,8 +30,6 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
     respond_to do |format|
-      format.xml { render xml: @article.as_json }
-      format.json
       format.html
       format.pdf do
         render pdf: 'pdf_file',
@@ -47,7 +45,7 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    @articles = Article.all
+    @articles = params[:search].nil? ? Article.all : Article.title_or_description_like(params[:search])
     respond_to do |format|
       format.html
       format.pdf do

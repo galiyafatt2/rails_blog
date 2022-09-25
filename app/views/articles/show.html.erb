@@ -17,5 +17,3 @@
 <%= link_to "Edit", edit_article_path(@article) %>
 <%= button_to 'Delete', article_path(@article), method: :delete, data: {confirm: "Are you sure?"} %>
 <%= link_to "PDF", article_path(@article, format: :pdf) %>
-<%= link_to "JSON", article_path(@article, format: :json) %>
-<%= link_to "XML", article_path(@article, format: :xml) %>

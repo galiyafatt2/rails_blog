@@ -3,8 +3,6 @@
 
   <%= link_to "Create new article", new_article_path %>
   <%= link_to "PDF", articles_path(format: :pdf) %>
-  <%= link_to "JSON", articles_path(format: :json) %>
-  <%= link_to "XML", articles_path(format: :xml) %>
 </p>
 <table>
   <%= render 'shared/article', obj: @articles %>
