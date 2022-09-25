@@ -1,5 +1,4 @@
 class Api::V1::ArticlesController < ApplicationController
-  skip_before_action :verify_authenticity_token
 
   def create
     @article = Article.new(article_params)
