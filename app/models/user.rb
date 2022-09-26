@@ -1,9 +1,12 @@
 # frozen_string_literal: true
 
 class User < ActiveRecord::Base
-  has_secure_password
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
   has_many :articles
-  validates :username, presence: true, uniqueness: { case_sensitive: false }, length: { minimum: 3, maximum: 25 }
-  validates :email, presence: true, length: { maximum: 105 }, uniqueness: { case_sensitive: false }
+  validates :username, presence: true
+  validates :email, presence: true
   before_save { self.email = email.downcase }
 end
